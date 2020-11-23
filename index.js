@@ -34,15 +34,12 @@ function save()
     const div = document.getElementById('save_zone');
     const parent = document.querySelectorAll("#elem> div> input");
     let string = "{";
-    for (let i = 0; i < parent.length; i++) {
+    for (let i = 0; i < parent.length; i = i + 2) {
         const a = parent[i].value;
-        string += '"' + a + '"';
-        if(i!==parent.length-1) {
-            if (i !== 0) {
-                string += ',';
-            } else {
-                string += ':';
-            }
+        const b = parent[i + 1].value;
+        string += '"' + a + '":"' + b + '"';
+        if (i !== parent.length - 2) {
+            string += ',';
         }
     }
     string += "}";
